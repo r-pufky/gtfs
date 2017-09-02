@@ -119,7 +119,7 @@ class SoundTransitStop(object):
 
     return (loaded_routes, stops)
 
-  def GetNextStops(self, route_short_name, count, format='%H:%M'):
+  def GetNextStops(self, route_short_name, count=3, format='%H:%M'):
     """ Returns the next (count) number of stops for a given route.
 
     Args:
