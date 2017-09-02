@@ -17,3 +17,12 @@ easy_install --install pytz
 ```
 
 Then ensure this library is in your project or Python path.
+
+# Usage
+
+```python
+import pytz
+from gtfs import sound_transit
+transit = sound_transit.SoundTransitStop('agency', 'stop', 'api key')
+transit.GetNextStops('A Line')
+```
