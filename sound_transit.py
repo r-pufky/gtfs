@@ -119,7 +119,7 @@ class SoundTransitStop(object):
 
     return (loaded_routes, stops)
 
-  def GetNextStops(self, route_short_name, count=3, format='%H:%M'):
+  def GetNextStops(self, route_short_name, count=3):
     """ Returns the next (count) number of stops for a given route.
 
     Args:
@@ -128,16 +128,15 @@ class SoundTransitStop(object):
       format: String format string to use for time (strftime). Default: %H:%M.
 
     Returns:
-      List containing the next stops for the given route.
+      List containing datetime TZ aware objects containing the next stops for
+      the given route.
     """
     now = datetime.datetime.now(tz=pytz.utc)
     (routes, stops) = self.GetStopSchedule()
     next_stops = []
     for stop in stops[routes[route_short_name].id].stops:
       if stop.departure_datetime > now:
-        next_stops.append(
-            stop.departure_datetime.astimezone(
-                tz=self.timezone).strftime(format))
+        next_stops.append(stop.departure_datetime)
         if len(next_stops) == count:
           break
     return next_stops
