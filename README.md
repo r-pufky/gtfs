@@ -13,7 +13,7 @@ unless otherwise noted.
 This library requires the use of the ```pytz``` library. Install the library with
 
 ```bash
-easy_install --install pytz
+pip install pytz
 ```
 
 Then ensure this library is in your project or Python path.
