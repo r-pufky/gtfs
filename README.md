@@ -9,8 +9,14 @@ implementation, and only features which are used have been implemented.
 Classes follow the [General Transit Feed Specification (GTFS)](https://developers.google.com/transit/gtfs/)
 unless otherwise noted.
 
+# Python 2.X and 3.X Support
+Compatible libraries for both 2.X and 3.X python are in respective directories
+Import/use the right directory for the respective version of Python you are
+using.
+
 # Requirements
-This library requires the use of the ```pytz``` library. Install the library with
+This library requires the use of the ```pytz``` library. Install the library
+with
 
 ```bash
 pip install pytz
