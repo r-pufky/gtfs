@@ -10,10 +10,10 @@ import datetime
 import os
 import pytz
 import time
-import urllib.request
+import urllib2
 import xml.etree.ElementTree
-from gtfs import stop_schedule
-from gtfs import route
+import stop_schedule
+import route
 
 
 class BaseException(Exception):
@@ -63,9 +63,10 @@ class SoundTransitStop(object):
       cache_location: String file location to cache data to.
     """
     query = '%s/%s.xml?key=%s' % (self.API_BASE, endpoint, self.api_key)
-    with urllib.request.urlopen(query) as data:
-      with open(cache_location, 'wb') as cache:
-        cache.write(data.read())
+    query = urllib2.Request(query)
+    data = urllib2.urlopen(query)
+    with open(cache_location, 'wb') as cache:
+      cache.write(data.read())
 
   def _UpdateStopSchedule(self):
     """ Updates the cached stop schedule for a given stop.

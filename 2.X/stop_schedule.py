@@ -11,7 +11,7 @@
 #   https://developers.google.com/transit/gtfs/
 #
 
-from gtfs import stop_time
+import stop_time
 
 
 class StopSchedule(object):
